@@ -6,7 +6,8 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
-        // Register application services here (e.g., MediatR, AutoMapper, etc.)
+        // This is where application-specific services like MediatR, AutoMapper,
+        // or application services/use cases would be registered.
         return services;
     }
 }
