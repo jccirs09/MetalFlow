@@ -2,15 +2,16 @@ using MetalFlow.Application;
 using MetalFlow.Infrastructure;
 using MetalFlow.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
-using MetalFlow.Client.Pages;
 using MetalFlow.Components;
 using MetalFlow.Components.Account;
+using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddMudServices();
 
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents()
