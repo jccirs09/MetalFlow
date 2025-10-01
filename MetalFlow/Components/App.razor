@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+@using MetalFlow.Client
+@using MetalFlow.Client.Layout
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,7 +20,18 @@
 </head>
 
 <body>
-    <Routes />
+    <Router AppAssembly="typeof(Program).Assembly">
+        <Found Context="routeData">
+            <RouteView RouteData="@routeData" DefaultLayout="typeof(MainLayout)" />
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </Found>
+        <NotFound>
+            <PageTitle>Not found</PageTitle>
+            <LayoutView Layout="typeof(MainLayout)">
+                <p role="alert">Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </NotFound>
+    </Router>
     <script src="@Assets["_framework/blazor.web.js"]"></script>
     <script src="@Assets["Components/Account/Shared/PasskeySubmit.razor.js"]" type="module"></script>
     <script src="_content/MudBlazor/MudBlazor.min.js"></script>
