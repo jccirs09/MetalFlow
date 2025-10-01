@@ -14,6 +14,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MetalFlow.Client\MetalFlow.Client.csproj" />
+    <ProjectReference Include="..\MetalFlow.Infrastructure\MetalFlow.Infrastructure.csproj" />
+    <ProjectReference Include="..\MetalFlow.Application\MetalFlow.Application.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="10.0.0-rc.1.25451.107" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="10.0.0-rc.1.25451.107" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.0-rc.1.25451.107" />

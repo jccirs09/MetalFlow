@@ -6,6 +6,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetalFlow", "MetalFlow\Meta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetalFlow.Client", "MetalFlow.Client\MetalFlow.Client.csproj", "{E33650B8-EF50-4A0A-9A80-0B00127E498D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalFlow.Domain", "MetalFlow.Domain\MetalFlow.Domain.csproj", "{D7D3B03C-9A3F-44A5-8C1A-2F3E7F6B0A2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalFlow.Application", "MetalFlow.Application\MetalFlow.Application.csproj", "{A5F8F2A8-8C4E-4E6A-9D8C-3B4A7B0A1C2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalFlow.Infrastructure", "MetalFlow.Infrastructure\MetalFlow.Infrastructure.csproj", "{F4D8B3A0-8A7B-4E9D-A1B2-C3D4E5F6A7B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
