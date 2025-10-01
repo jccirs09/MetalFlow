@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Identity;
-using MetalFlow.Data;
+using MetalFlow.Domain.Entities;
 
 namespace MetalFlow.Components.Account;
 
