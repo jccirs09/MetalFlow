@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using MetalFlow.Components.Account.Pages;
 using MetalFlow.Components.Account.Pages.Manage;
-using MetalFlow.Data;
+using MetalFlow.Domain.Entities;
 
 namespace Microsoft.AspNetCore.Routing;
 
