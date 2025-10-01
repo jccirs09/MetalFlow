@@ -1,17 +1,18 @@
-﻿@inherits LayoutComponentBase
+@inherits LayoutComponentBase
 @layout MetalFlow.Components.Layout.MainLayout
 
-<h1>Manage your account</h1>
+<MudText Typo="Typo.h4" GutterBottom="true" Class="mt-4 mb-4">Manage your account</MudText>
 
-<div>
-    <h2>Change your account settings</h2>
-    <hr />
-    <div class="row">
-        <div class="col-lg-3">
-            <ManageNavMenu />
-        </div>
-        <div class="col-lg-9">
+<MudText Typo="Typo.h5" GutterBottom="true">Change your account settings</MudText>
+<MudDivider Class="mb-4" />
+
+<MudGrid>
+    <MudItem xs="12" md="3">
+        <ManageNavMenu />
+    </MudItem>
+    <MudItem xs="12" md="9">
+        <MudPaper Class="pa-4">
             @Body
-        </div>
-    </div>
-</div>
+        </MudPaper>
+    </MudItem>
+</MudGrid>
