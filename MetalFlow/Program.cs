@@ -1,9 +1,11 @@
+using MetalFlow.Application;
+using MetalFlow.Domain;
+using MetalFlow.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MetalFlow.Client.Pages;
 using MetalFlow.Components;
 using MetalFlow.Components.Account;
-using MetalFlow.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,8 +27,14 @@ builder.Services.AddAuthorization();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
+    options.UseSqlite(connectionString, b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IPersonalDataService, PersonalDataService>();
+builder.Services.AddScoped<IIdentityService, IdentityService>();
 
 builder.Services.AddIdentityCore<ApplicationUser>(options =>
     {
