@@ -1,0 +1,11 @@
+<AuthorizeView>
+    <Authorized>
+        <MudMenu Icon="@Icons.Material.Filled.Person" Color="Color.Inherit" Direction="Direction.Bottom" OffsetY="true">
+            <MudMenuItem>@context.User.Identity?.Name</MudMenuItem>
+            <MudMenuItem Href="authentication/logout">Log out</MudMenuItem>
+        </MudMenu>
+    </Authorized>
+    <NotAuthorized>
+        <MudButton Href="authentication/login" Color="Color.Inherit">Log in</MudButton>
+    </NotAuthorized>
+</AuthorizeView>
