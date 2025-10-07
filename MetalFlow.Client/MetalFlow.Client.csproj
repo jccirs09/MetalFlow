@@ -50,6 +50,7 @@
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0-rc.1.25451.107" />
         <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="10.0.0-rc.1.25451.107" />
+        <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.0-rc.1.25451.107" />
         <PackageReference Include="MudBlazor" Version="7.0.0" />
         <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.1" />
     </ItemGroup>

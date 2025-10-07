@@ -5,10 +5,10 @@
 @inject NavigationManager NavManager
 
 <MudPaper Class="pa-4" Elevation="3">
-    <MudForm @ref="_form" @bind-IsValid="_success">
+    <MudForm @ref="_form" @bind-IsValid="@_success">
         <MudText Typo="Typo.h4" GutterBottom="true">Login</MudText>
-        <MudTextField T="string" Label="Email" @bind-Value="_loginModel.Email" For="@(() => _loginModel.Email)" Required="true" RequiredError="Email is required!" />
-        <MudTextField T="string" Label="Password" @bind-Value="_loginModel.Password" For="@(() => _loginModel.Password)" InputType="InputType.Password" Required="true" RequiredError="Password is required!" />
+        <MudTextField T="string" Label="Email" @bind-Value="@_loginModel.Email" For="@(() => _loginModel.Email)" Required="true" RequiredError="Email is required!" />
+        <MudTextField T="string" Label="Password" @bind-Value="@_loginModel.Password" For="@(() => _loginModel.Password)" InputType="InputType.Password" Required="true" RequiredError="Password is required!" />
         <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="HandleLogin" Class="mt-4">Login</MudButton>
     </MudForm>
 </MudPaper>

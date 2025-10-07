@@ -2,6 +2,7 @@ using MetalFlow.Client.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Logging;
 using MudBlazor.Services;
+using System.Net.Http;
 
 namespace MetalFlow.Client;
 

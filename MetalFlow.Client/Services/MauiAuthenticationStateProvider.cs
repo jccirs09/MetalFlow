@@ -3,6 +3,7 @@ using System.Text.Json;
 using MetalFlow.Client.Data;
 using Microsoft.AspNetCore.Components.Authorization;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http;
 using System.Net.Http.Json;
 
 namespace MetalFlow.Client.Services;

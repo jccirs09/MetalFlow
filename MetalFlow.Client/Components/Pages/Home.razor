@@ -1,0 +1,15 @@
+@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true">Welcome to MetalFlow!</MudText>
+<MudText>Use the navigation menu to explore the application.</MudText>
+
+<AuthorizeView>
+    <Authorized>
+        <MudText Class="mt-4">You are logged in as @context.User.Identity?.Name.</MudText>
+    </Authorized>
+    <NotAuthorized>
+        <MudText Class="mt-4">Please log in to access protected resources.</MudText>
+    </NotAuthorized>
+</AuthorizeView>

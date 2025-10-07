@@ -7,9 +7,13 @@
 <MudText Typo="Typo.h4">Weather Forecast</MudText>
 <MudText Class="mb-4">This component demonstrates fetching data from a secure server-side API.</MudText>
 
-@if (_forecasts == null)
+@if (_forecasts == null && _loadFailed == false)
 {
     <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else if (_loadFailed)
+{
+    <MudAlert Severity="Severity.Error">Failed to load weather data. Please ensure the server is running and you are logged in.</MudAlert>
 }
 else
 {
@@ -31,14 +35,15 @@ else
 
 @code {
     private WeatherForecast[]? _forecasts;
+    private bool _loadFailed;
 
     protected override async Task OnInitializedAsync()
     {
         var httpClient = HttpClientFactory.CreateClient("ServerApi");
         try
         {
-            // This is just an example. In a real app, you would fetch from a real API endpoint.
-            // For now, we simulate the data.
+            // In a real app, you would fetch from the secure API endpoint.
+            // For this example, we'll just simulate the data fetch to demonstrate the protected page.
             await Task.Delay(500); // Simulate network latency
             var startDate = DateOnly.FromDateTime(DateTime.Now);
             var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
@@ -49,9 +54,9 @@ else
                 Summary = summaries[Random.Shared.Next(summaries.Length)]
             }).ToArray();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            // Handle error
+            _loadFailed = true;
         }
     }
 
