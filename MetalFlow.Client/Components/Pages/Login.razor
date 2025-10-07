@@ -1,0 +1,40 @@
+@page "/login"
+@inject IAuthService AuthService
+@inject NavigationManager NavigationManager
+
+<MudPaper Class="pa-4" Elevation="3">
+    <MudForm @ref="form" @bind-isValid="success">
+        @if (showError)
+        {
+            <MudAlert Severity="Severity.Error" Class="mb-4">Invalid email or password.</MudAlert>
+        }
+        <MudTextField T="string" Label="Email" @bind-value="email" Required="true" RequiredError="Email is required!" />
+        <MudTextField T="string" Label="Password" @bind-value="password" InputType="InputType.Password" Required="true" RequiredError="Password is required!" />
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="HandleLogin" Disabled="@(!success)">Log In</MudButton>
+    </MudForm>
+</MudPaper>
+
+@code {
+    private MudForm form = default!;
+    private bool success;
+    private string email = "";
+    private string password = "";
+    private bool showError = false;
+
+    private async Task HandleLogin()
+    {
+        if (form.IsValid)
+        {
+            showError = false;
+            var result = await AuthService.LoginAsync(email, password);
+            if (result)
+            {
+                NavigationManager.NavigateTo("/");
+            }
+            else
+            {
+                showError = true;
+            }
+        }
+    }
+}

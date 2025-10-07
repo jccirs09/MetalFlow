@@ -1,3 +1,4 @@
 <Solution>
-  <Project Path="MetalFlow.csproj" />
+  <Project Path="MetalFlow.Client/MetalFlow.Client.csproj" />
+  <Project Path="MetalFlow.Server/MetalFlow.Server.csproj" />
 </Solution>

@@ -1,0 +1,24 @@
+@inject IAuthService AuthService
+@inject NavigationManager NavigationManager
+
+<MudNavMenu>
+    <MudNavLink Href="/" Match="NavLinkMatch.All">Home</MudNavLink>
+    <MudNavLink Href="/counter" Match="NavLinkMatch.Prefix">Counter</MudNavLink>
+    <AuthorizeView>
+        <Authorized>
+            <MudNavLink OnClick="Logout">Log out</MudNavLink>
+        </Authorized>
+        <NotAuthorized>
+            <MudNavLink Href="/login">Log in</MudNavLink>
+            <MudNavLink Href="/register">Register</MudNavLink>
+        </NotAuthorized>
+    </AuthorizeView>
+</MudNavMenu>
+
+@code {
+    private async Task Logout()
+    {
+        await AuthService.LogoutAsync();
+        NavigationManager.NavigateTo("/login", forceLoad: true);
+    }
+}

@@ -1,0 +1,6 @@
+@MetalFlow.Server_HostAddress = http://localhost:5069
+
+GET {{MetalFlow.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
