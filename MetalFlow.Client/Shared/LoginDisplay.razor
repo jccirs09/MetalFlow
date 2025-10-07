@@ -1,0 +1,21 @@
+@using MetalFlow.Client.Services
+@inject MauiAuthenticationStateProvider authProvider
+@inject NavigationManager navManager
+
+<AuthorizeView>
+    <Authorized>
+        <MudText>Hello, @context.User.Identity?.Name</MudText>
+        <MudButton Color="Color.Inherit" OnClick="HandleLogout">Logout</MudButton>
+    </Authorized>
+    <NotAuthorized>
+        <MudButton Href="/login" Color="Color.Inherit">Login</MudButton>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private async Task HandleLogout()
+    {
+        await authProvider.LogoutAsync();
+        navManager.NavigateTo("/login", forceLoad: true);
+    }
+}

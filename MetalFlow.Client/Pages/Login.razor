@@ -1,0 +1,27 @@
+@page "/login"
+@using MetalFlow.Client.Models
+@using MetalFlow.Client.Services
+@inject MauiAuthenticationStateProvider authProvider
+@inject NavigationManager navManager
+
+<MudPaper Class="pa-4" Elevation="3">
+    <MudForm @bind-IsValid="@_success">
+        <MudTextField T="string" Label="Email" @bind-Value="Model.Email" For="@(() => Model.Email)" Required="true" RequiredError="Email is required." />
+        <MudTextField T="string" Label="Password" @bind-Value="Model.Password" For="@(() => Model.Password)" InputType="InputType.Password" Required="true" RequiredError="Password is required." />
+        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="mt-4" OnClick="HandleLogin">Login</MudButton>
+    </MudForm>
+</MudPaper>
+
+@code {
+    private bool _success;
+    private LoginModel Model { get; set; } = new();
+
+    private async Task HandleLogin()
+    {
+        var result = await authProvider.LoginAsync(Model);
+        if (result)
+        {
+            navManager.NavigateTo("/");
+        }
+    }
+}

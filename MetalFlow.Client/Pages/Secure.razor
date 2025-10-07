@@ -1,0 +1,44 @@
+@page "/secure"
+@attribute [Authorize]
+@inject IHttpClientFactory httpClientFactory
+
+<PageTitle>Secure Page</PageTitle>
+
+<h1>Secure Page</h1>
+
+<p>This page is only visible to authenticated users.</p>
+
+<MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="FetchSecureData">Fetch Secure Data</MudButton>
+
+@if (!string.IsNullOrEmpty(_secureData))
+{
+    <MudAlert Severity="Severity.Success" Class="mt-4">@_secureData</MudAlert>
+}
+
+@if (!string.IsNullOrEmpty(_error))
+{
+    <MudAlert Severity="Severity.Error" Class="mt-4">@_error</MudAlert>
+}
+
+@code {
+    private string? _secureData;
+    private string? _error;
+
+    private async Task FetchSecureData()
+    {
+        try
+        {
+            var httpClient = httpClientFactory.CreateClient("ServerApi");
+            var token = await SecureStorage.GetAsync("authToken");
+            httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            _secureData = await httpClient.GetStringAsync("api/securedata");
+            _error = null;
+        }
+        catch (Exception ex)
+        {
+            _error = $"Error fetching secure data: {ex.Message}";
+            _secureData = null;
+        }
+    }
+}
