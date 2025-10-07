@@ -1,0 +1,31 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="Primary">#512BD4</Color>
+    <Color x:Key="PrimaryDark">#2B0B98</Color>
+    <Color x:Key="PrimaryLight">#7E57C2</Color>
+
+    <Color x:Key="Secondary">#DFD8F7</Color>
+    <Color x:Key="SecondaryDark">#B9A2F2</Color>
+    <Color x:Key="SecondaryLight">#F2F0F7</Color>
+
+    <Color x:Key="White">#FFFFFF</Color>
+    <Color x:Key="Black">#000000</Color>
+
+    <Color x:Key="Gray100">#F2F2F2</Color>
+    <Color x:Key="Gray200">#E6E6E6</Color>
+    <Color x:Key="Gray300">#CCCCCC</Color>
+    <Color x:Key="Gray400">#B3B3B3</Color>
+    <Color x:Key="Gray500">#999999</Color>
+    <Color x:Key="Gray600">#666666</Color>
+    <Color x:Key="Gray900">#212121</Color>
+    <Color x:Key="Gray950">#141414</Color>
+
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
+
+    <SolidColorBrush x:Key="PageBackgroundColor" Color="{StaticResource Gray100}"/>
+    <SolidColorBrush x:Key="PrimaryTextColor" Color="{StaticResource Black}"/>
+
+</ResourceDictionary>
